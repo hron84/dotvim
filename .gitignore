@@ -1,3 +1,4 @@
 backup/
 swap/
 autoload/pathogen.vim
+.netrwhist
