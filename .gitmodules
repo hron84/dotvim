@@ -7,3 +7,12 @@
 [submodule "bundle/vim-Gemfile"]
 	path = bundle/vim-Gemfile
 	url = git://github.com/nowk/Gemfile.vim.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/vim-matchit"]
+	path = bundle/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "bundle/vim-twilight"]
+	path = bundle/vim-twilight
+	url = git://github.com/vim-scripts/twilight256.vim.git
