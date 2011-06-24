@@ -1,0 +1,41 @@
+set smartcase
+set directory=~/.vim/swap
+set backupdir=~/.vim/backup
+set backup
+set modeline
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+filetype off 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+filetype plugin on
+filetype indent on
+
+
+colorscheme twilight256
+
+au FileType ruby,Gemfile set ts=2 sw=2 et
+au FileType html,xml,xhtml set ts=4 sw=4 et
+
+
+autocmd BufRead,BufNewFile *.module set filetype=php ts=2 sw=2 et si
+autocmd BufRead,BufNewFile *.install set filetype=php ts=2 sw=2 et si
+autocmd BufRead,BufNewFile *.test set filetype=php ts=2 sw=2 et si
+autocmd BufRead,BufNewFile *.tpl.php set filetype=php ts=2 sw=2 et si
+
+
+" i'm lame :)
+cab W  w
+cab Wq wq
+cab wQ wq
+cab WQ wq
+cab Q  q
+
+
+let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
+set laststatus=2        " Always a status line
+
