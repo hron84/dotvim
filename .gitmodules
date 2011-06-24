@@ -16,3 +16,6 @@
 [submodule "bundle/vim-twilight"]
 	path = bundle/vim-twilight
 	url = git://github.com/vim-scripts/twilight256.vim.git
+[submodule "bundle/vim-smarty"]
+	path = bundle/vim-smarty
+	url = git@github.com:hron84/smarty.vim.git
