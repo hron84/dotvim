@@ -20,12 +20,14 @@ colorscheme twilight256
 
 au FileType ruby,Gemfile set ts=2 sw=2 et
 au FileType html,xml,xhtml set ts=4 sw=4 et
-
+au FileType markdown set spell spelllang=hu
 
 autocmd BufRead,BufNewFile *.module set filetype=php ts=2 sw=2 et si
 autocmd BufRead,BufNewFile *.install set filetype=php ts=2 sw=2 et si
 autocmd BufRead,BufNewFile *.test set filetype=php ts=2 sw=2 et si
 autocmd BufRead,BufNewFile *.tpl.php set filetype=php ts=2 sw=2 et si
+
+autocmd BufRead,BufNewFile *.html.erb set ts=4 sw=4 et si
 
 
 " i'm lame :)
@@ -35,6 +37,8 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
+:nmap <F1> <nop>
+:imap <F1> <nop>
 
 let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
 set laststatus=2        " Always a status line
