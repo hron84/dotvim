@@ -1,3 +1,4 @@
+syntax on
 set smartcase
 set directory=~/.vim/swap
 set backupdir=~/.vim/backup
@@ -21,6 +22,7 @@ colorscheme twilight256
 au FileType ruby,Gemfile set ts=2 sw=2 et
 au FileType html,xml,xhtml set ts=4 sw=4 et
 au FileType markdown set spell spelllang=hu
+au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 autocmd BufRead,BufNewFile *.module set filetype=php ts=2 sw=2 et si
 autocmd BufRead,BufNewFile *.install set filetype=php ts=2 sw=2 et si
