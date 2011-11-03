@@ -1,0 +1,11 @@
+set background=dark
+
+"Note background set to dark in .vimrc
+highlight clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+highlight Normal guifg=White   guibg=Black
+highlight Cursor guifg=Black   guibg=White

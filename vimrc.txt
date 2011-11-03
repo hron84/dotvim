@@ -1,4 +1,3 @@
-syntax on
 set smartcase
 set directory=~/.vim/swap
 set backupdir=~/.vim/backup
@@ -8,6 +7,9 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+fixdel
+syntax on
 
 filetype off 
 call pathogen#helptags()
@@ -19,17 +21,71 @@ filetype indent on
 
 colorscheme twilight256
 
-au FileType ruby,Gemfile set ts=2 sw=2 et
-au FileType html,xml,xhtml set ts=4 sw=4 et
 au FileType markdown set spell spelllang=hu
 au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
-autocmd BufRead,BufNewFile *.module set filetype=php ts=2 sw=2 et si
-autocmd BufRead,BufNewFile *.install set filetype=php ts=2 sw=2 et si
-autocmd BufRead,BufNewFile *.test set filetype=php ts=2 sw=2 et si
-autocmd BufRead,BufNewFile *.tpl.php set filetype=php ts=2 sw=2 et si
+augroup Ruby
+	au!
+	au FileType ruby set ts=2 sw=2 et
+	au FileType Gemfile set ts=2 sw=2 et
+	au FileType erb set ts=4 sw=4 et
 
-autocmd BufRead,BufNewFile *.html.erb set ts=4 sw=4 et si
+    autocmd BufRead,BufNewFile *.html.erb set ts=4 sw=4
+	au BufRead,BufNewFile Capfile set ft=ruby
+augroup END
+
+augroup XML
+    au!
+	au FileType xsd set ts=2 sw=2 et
+    au FileType html,xml,xhtml set ts=4 sw=4 et
+augroup END
+
+augroup Bash
+	au!
+	au FileType sh set ts=2 sw=2 et
+augroup END
+
+augroup PHP
+    " Drupal file types
+    autocmd FileType php set ts=2 sw=2 et
+    autocmd BufRead,BufNewFile *.module set filetype=php 
+    autocmd BufRead,BufNewFile *.install set filetype=php 
+    autocmd BufRead,BufNewFile *.test set filetype=php 
+    autocmd BufRead,BufNewFile *.tpl.php set filetype=php 
+augroup END
+
+function! SKEL_spec()
+	0r /usr/share/vim/current/skeletons/skeleton.spec
+	language time en_US
+	if $USER != ''
+	    let login = $USER
+	elseif $LOGNAME != ''
+	    let login = $LOGNAME
+	else
+	    let login = 'unknown'
+	endif
+	let newline = stridx(login, "\n")
+	if newline != -1
+	    let login = strpart(login, 0, newline)
+	endif
+	if $HOSTNAME != ''
+	    let hostname = $HOSTNAME
+	else
+	    let hostname = system('hostname -f')
+	    if v:shell_error
+		let hostname = 'localhost'
+	    endif
+	endif
+	let newline = stridx(hostname, "\n")
+	if newline != -1
+	    let hostname = strpart(hostname, 0, newline)
+	endif
+	exe "%s/specRPM_CREATION_DATE/" . strftime("%a\ %b\ %d\ %Y") . "/ge"
+	exe "%s/specRPM_CREATION_AUTHOR_MAIL/" . login . "@" . hostname . "/ge"
+	exe "%s/specRPM_CREATION_NAME/" . expand("%:t:r") . "/ge"
+	setf spec
+endfunction
+autocmd BufNewFile	*.spec	call SKEL_spec()
 
 
 " i'm lame :)
