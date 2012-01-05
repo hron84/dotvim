@@ -1,5 +1,5 @@
 set smartcase
-if has("windows")
+if has("win32")
     set directory=~/vimfiles/swap
     set backupdir=~/vimfiles/backup
     set fileencodings=utf-8,ucs-bom,cp852
