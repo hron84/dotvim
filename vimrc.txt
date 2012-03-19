@@ -1,3 +1,9 @@
+syntax on
+
+filetype off 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 set smartcase
 set directory=~/.vim/swap
 set backupdir=~/.vim/backup
@@ -7,13 +13,9 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
+" LustyExplorer needs this
+set hidden
 fixdel
-syntax on
-
-filetype off 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 filetype plugin on
 filetype indent on
@@ -25,24 +27,34 @@ au FileType markdown set spell spelllang=hu
 au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 augroup Ruby
-	au!
-	au FileType ruby set ts=2 sw=2 et
-	au FileType Gemfile set ts=2 sw=2 et
-	au FileType erb set ts=4 sw=4 et
+    au!
+    au FileType ruby set ts=2 sw=2 et si
+    au FileType Gemfile set ts=2 sw=2 et
+    au FileType eruby set ts=4 sw=4 et
+    au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+    au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    au FileType ruby,eruby let g:rubycomplete_rails = 1
+
+    au FileType cucumber setlocal makeprg=rake\ cucumber\ FEATURE=\"%:p\"
 
     autocmd BufRead,BufNewFile *.html.erb set ts=4 sw=4
-	au BufRead,BufNewFile Capfile set ft=ruby
+    au BufRead,BufNewFile Capfile set ft=ruby
+    au BufRead,BufNewFile Gemfile* set ft=Gemfile
+    au BufRead,BufNewFile .rspec set ft=eruby
+    au BufRead,BufNewFile .simplecov set ft=ruby
+    au BufRead,BufNewFile *.html.arb set ft=ruby
+    au BufRead,BufNewFile .rvmrc,rvmrc set ft=sh
 augroup END
 
 augroup XML
     au!
-	au FileType xsd set ts=2 sw=2 et
+    au FileType xsd set ts=2 sw=2 et
     au FileType html,xml,xhtml set ts=4 sw=4 et
 augroup END
 
 augroup Bash
-	au!
-	au FileType sh set ts=2 sw=2 et
+    au!
+    au FileType sh set ts=2 sw=2 et
 augroup END
 
 augroup PHP
@@ -55,37 +67,37 @@ augroup PHP
 augroup END
 
 function! SKEL_spec()
-	0r /usr/share/vim/current/skeletons/skeleton.spec
-	language time en_US
-	if $USER != ''
-	    let login = $USER
-	elseif $LOGNAME != ''
-	    let login = $LOGNAME
-	else
-	    let login = 'unknown'
-	endif
-	let newline = stridx(login, "\n")
-	if newline != -1
-	    let login = strpart(login, 0, newline)
-	endif
-	if $HOSTNAME != ''
-	    let hostname = $HOSTNAME
-	else
-	    let hostname = system('hostname -f')
-	    if v:shell_error
-		let hostname = 'localhost'
-	    endif
-	endif
-	let newline = stridx(hostname, "\n")
-	if newline != -1
-	    let hostname = strpart(hostname, 0, newline)
-	endif
-	exe "%s/specRPM_CREATION_DATE/" . strftime("%a\ %b\ %d\ %Y") . "/ge"
-	exe "%s/specRPM_CREATION_AUTHOR_MAIL/" . login . "@" . hostname . "/ge"
-	exe "%s/specRPM_CREATION_NAME/" . expand("%:t:r") . "/ge"
-	setf spec
+    0r /usr/share/vim/current/skeletons/skeleton.spec
+    language time en_US
+    if $USER != ''
+        let login = $USER
+    elseif $LOGNAME != ''
+        let login = $LOGNAME
+    else
+        let login = 'unknown'
+    endif
+    let newline = stridx(login, "\n")
+    if newline != -1
+        let login = strpart(login, 0, newline)
+    endif
+    if $HOSTNAME != ''
+        let hostname = $HOSTNAME
+    else
+        let hostname = system('hostname -f')
+        if v:shell_error
+        let hostname = 'localhost'
+        endif
+    endif
+    let newline = stridx(hostname, "\n")
+    if newline != -1
+        let hostname = strpart(hostname, 0, newline)
+    endif
+    exe "%s/specRPM_CREATION_DATE/" . strftime("%a\ %b\ %d\ %Y") . "/ge"
+    exe "%s/specRPM_CREATION_AUTHOR_MAIL/" . login . "@" . hostname . "/ge"
+    exe "%s/specRPM_CREATION_NAME/" . expand("%:t:r") . "/ge"
+    setf spec
 endfunction
-autocmd BufNewFile	*.spec	call SKEL_spec()
+autocmd BufNewFile  *.spec  call SKEL_spec()
 
 
 " i'm lame :)
@@ -98,6 +110,17 @@ cab Q  q
 :nmap <F1> <nop>
 :imap <F1> <nop>
 
+" C-space for NetBeans-like completion
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+\ "\<lt>C-n>" :
+\ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+\ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+\ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
+
+
+
 let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
 set laststatus=2        " Always a status line
 
+let g:syntastic_auto_loc_list=1

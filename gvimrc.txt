@@ -9,3 +9,9 @@ endif
 
 highlight Normal guifg=White   guibg=Black
 highlight Cursor guifg=Black   guibg=White
+
+map <silent> <S-Insert> "+p
+imap <silent> <S-Insert> <Esc>:set paste<CR>"+p:set nopaste<CR>a
+
+set mouseshape=n:beam,ve:beam,sd:updown
+set guioptions-=T
