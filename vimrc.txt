@@ -5,8 +5,15 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 set smartcase
-set directory=~/.vim/swap
-set backupdir=~/.vim/backup
+if has("win32")
+    set directory=~/vimfiles/swap
+    set backupdir=~/vimfiles/backup
+    set fileencodings=utf-8,ucs-bom,cp852
+else
+    set directory=~/.vim/swap
+    set backupdir=~/.vim/backup
+endif
+
 set backup
 set modeline
 set smartindent
