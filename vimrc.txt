@@ -24,6 +24,8 @@ set expandtab
 set hidden
 fixdel
 
+set foldmethod=marker
+
 filetype plugin on
 filetype indent on
 
@@ -126,8 +128,10 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <C-@> <C-Space>
 
 
-
-let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
+"let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
+let &stl='--<%02n> %{pathshorten(expand("%:P"))}%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}]  %2*%{mode()}%* %{&paste ? "[PASTE]" : ""} %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
 set laststatus=2        " Always a status line
 
 let g:syntastic_auto_loc_list=1
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'passive_filetypes': ['sass', 'scss'] }
