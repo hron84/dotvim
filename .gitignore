@@ -1,4 +1,6 @@
 backup/
 swap/
+record/
+view/
 .netrwhist
 spell/*.add
