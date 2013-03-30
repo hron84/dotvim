@@ -81,6 +81,12 @@ augroup Python
     au FileType python set omnifunc=pythoncomplete#Complete
 augroup END
 
+
+augroup Groovy
+    au BufRead,BufNewFile *.gy set filetype=groovy
+    au BufRead,BufNewFile *.gvy set filetype=groovy
+augroup END
+
 au BufRead,BufNewFile *.changes.vctmp.* set ft=changes
 
 
