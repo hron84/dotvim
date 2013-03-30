@@ -34,3 +34,6 @@
 [submodule "bundle/vim-smarty"]
 	path = bundle/vim-smarty
 	url = git://github.com/hron84/smarty.vim.git
+[submodule "bundle/vim-chef"]
+	path = bundle/vim-chef
+	url = git://github.com/hron84/vim-chef.git
