@@ -1,3 +1,9 @@
+" Do it before syntax activation
+aunmenu Help
+aunmenu Window
+let no_buffers_menu=1
+set mousemodel=popup
+
 syntax on
 
 filetype off 
@@ -26,13 +32,33 @@ fixdel
 
 set foldmethod=marker
 
-filetype plugin on
-filetype indent on
-
+filetype indent plugin on
 
 colorscheme twilight256
 
-au FileType markdown set spell spelllang=hu
+" Setup fonts
+if has("gui_running")
+    if has("mac")
+        set guifont=Consolas:h13
+    else
+        set guifont=Consolas\ 10
+    endif
+    set guioptions-=T
+    set completeopt-=preview
+    set cursorline
+endif
+
+set ttyfast
+
+" Better modes.  Remeber where we are, support yankring
+set viminfo=!,'100,\"100,:20,<50,s10,h,n~/.viminfo
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" The PC is fast enough, do syntax highlight syncing from start
+autocmd BufEnter * :syntax sync fromstart
+
+au FileType markdown setlocal spell spelllang=hu wrapmargin=80 colorcolumn=80
 au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 augroup Ruby
@@ -136,6 +162,9 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
+" sudo make sandwich!
+cmap W! w !sudo tee % >/dev/null
+
 :nmap <F1> <nop>
 :imap <F1> <nop>
 
@@ -146,7 +175,6 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
 \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
-
 
 "let &stl='--<%02n> %1*%t%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}] %2*%{mode()}%* %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
 let &stl='--<%02n> %{pathshorten(expand("%:P"))}%* %3*%M%*[%(%R%W%Y%),%{&fenc}:%{&ff}]  %2*%{mode()}%* %{&paste ? "[PASTE]" : ""} %4*%k%* %= 0x%B at %1*%l%*/%L:%c%V --'
