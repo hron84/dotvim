@@ -40,3 +40,6 @@
 [submodule "bundle/vim-Cheffile"]
 	path = bundle/vim-Cheffile
 	url = git://github.com/hron84/vim-Cheffile.git
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
