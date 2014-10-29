@@ -58,7 +58,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " The PC is fast enough, do syntax highlight syncing from start
 autocmd BufEnter * :syntax sync fromstart
 
-au FileType markdown setlocal spell spelllang=hu wrapmargin=80 colorcolumn=80
+au FileType markdown setlocal nospell spelllang=hu wrapmargin=80 colorcolumn=80
 au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 augroup Ruby
