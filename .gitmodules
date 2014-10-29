@@ -46,3 +46,6 @@
 [submodule "bundle/vim-dockerfile"]
 	path = bundle/vim-dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "bundle/vim-vagrant"]
+	path = bundle/vim-vagrant
+	url = https://github.com/markcornick/vim-vagrant.git
