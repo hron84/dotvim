@@ -49,3 +49,6 @@
 [submodule "bundle/vim-vagrant"]
 	path = bundle/vim-vagrant
 	url = https://github.com/markcornick/vim-vagrant.git
+[submodule "bundle/vim-Guardfile"]
+	path = bundle/vim-Guardfile
+	url = https://github.com/hron84/vim-Guardfile
