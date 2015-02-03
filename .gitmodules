@@ -55,3 +55,6 @@
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
 	url = https://github.com/puppetlabs/puppet-syntax-vim.git
+[submodule "bundle/vim-librarian"]
+	path = bundle/vim-librarian
+	url = https://github.com/hron84/vim-librarian
