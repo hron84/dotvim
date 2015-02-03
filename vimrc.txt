@@ -75,6 +75,7 @@ augroup Ruby
     autocmd BufRead,BufNewFile *.html.erb set ts=4 sw=4
     au BufRead,BufNewFile Capfile set ft=ruby
     au BufRead,BufNewFile Gemfile* set ft=Gemfile
+    au BufRead,BufNewFile Guardfile* set ft=Guardfile
     au BufRead,BufNewFile .rspec set ft=eruby
     au BufRead,BufNewFile .simplecov set ft=ruby
     au BufRead,BufNewFile *.html.arb set ft=ruby

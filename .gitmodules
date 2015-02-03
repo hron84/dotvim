@@ -37,9 +37,6 @@
 [submodule "bundle/vim-chef"]
 	path = bundle/vim-chef
 	url = git://github.com/hron84/vim-chef.git
-[submodule "bundle/vim-Cheffile"]
-	path = bundle/vim-Cheffile
-	url = git://github.com/hron84/vim-Cheffile.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
@@ -55,3 +52,6 @@
 [submodule "bundle/vim-Guardfile"]
 	path = bundle/vim-Guardfile
 	url = https://github.com/hron84/vim-Guardfile
+[submodule "bundle/vim-puppet"]
+	path = bundle/vim-puppet
+	url = https://github.com/puppetlabs/puppet-syntax-vim.git
