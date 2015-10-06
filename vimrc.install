@@ -1,1 +1,5 @@
+set nocompatible hidden
+
 source $HOME/.vim/Plugfile.vim
+
+" vim: ft=vim
