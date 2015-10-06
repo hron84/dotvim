@@ -1,0 +1,10 @@
+backup/**
+!backup/.gitkeep
+swap/**
+!swap/.gitkeep
+bundle/**
+!bundle/.gitkeep
+record/
+view/
+.netrwhist
+spell/*.add

@@ -1,0 +1,30 @@
+set background=dark
+
+"Note background set to dark in .vimrc
+highlight clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+
+" Setup fonts
+if has("gui_running")
+    if has("mac")
+        set guifont=Consolas:h13
+    else
+        set guifont=Consolas\ 10
+    endif
+    set guioptions-=T
+    set completeopt-=preview
+    set cursorline
+endif
+
+highlight Normal guifg=White   guibg=Black
+highlight Cursor guifg=Black   guibg=White
+
+map <silent> <S-Insert> "+p
+imap <silent> <S-Insert> <Esc>:set paste<CR>"+p:set nopaste<CR>a
+
+set mouseshape=n:beam,ve:beam,sd:updown
+set guioptions-=T
