@@ -20,5 +20,6 @@ Plug 'tpope/vim-rails' " { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby' " { 'for': 'ruby' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/twilight256.vim'
+Plug '0rca/vim-mikrotik'
 
 call plug#end()
