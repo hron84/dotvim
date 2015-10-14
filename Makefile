@@ -8,6 +8,7 @@ swap:
 	mkdir -p swap
 
 submodules:
+	@echo " * Installing modules from Plugfile ... " && \
 	vim -u $(PWD)/vimrc.install +PlugInstall +qall
 
 vimrc:
