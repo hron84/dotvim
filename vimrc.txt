@@ -35,6 +35,9 @@ fixdel
 
 set foldmethod=marker
 
+if has("mac")
+    set backspace=indent,eol,start
+endif
 
 colorscheme twilight256
 
