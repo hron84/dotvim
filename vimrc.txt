@@ -56,7 +56,8 @@ au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 augroup Ruby
     au!
-    au FileType ruby set ts=2 sw=2 et si
+    au FileType ruby set ts=2 sw=2 et
+    au FileType yaml set ts=2 sw=2 et
     au FileType Gemfile set ts=2 sw=2 et
     au FileType eruby set ts=4 sw=4 et
     au FileType ruby,eruby set omnifunc=rubycomplete#Complete
