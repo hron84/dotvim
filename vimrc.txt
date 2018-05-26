@@ -150,6 +150,9 @@ endif
 "autocmd BufWinLeave * mkview
 "autocmd BufWinEnter * silent loadview
 
+autocmd FileType yaml set ts=2 sw=2
+
+
 " i'm lame :)
 cab W  w
 cab Wq wq

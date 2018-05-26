@@ -2,7 +2,8 @@
 call plug#begin('~/.vim/bundle')
 
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fbernier/nginx-vim-syntax'
+" Plug 'evanmiller/nginx-vim-syntax'
+Plug 'chr4/nginx.vim'
 Plug 'hron84/Gemfile.vim'
 Plug 'hron84/smarty.vim'
 Plug 'hron84/vim-Guardfile'
@@ -21,7 +22,7 @@ Plug 'tpope/vim-rails' " { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby' " { 'for': 'ruby' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/twilight256.vim'
-Plug 'zainin/vim-mikrotik'
-Plug 'pearofducks/ansible-vim'
+" Plug '0rca/vim-mikrotik'
+Plug 'chase/vim-ansible-yaml'
 
 call plug#end()
