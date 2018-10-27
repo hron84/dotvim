@@ -1,5 +1,10 @@
 
-call plug#begin('~/.vim/bundle')
+if has("win32")
+    call plug#begin('~/vimfiles/bundle')
+else
+    call plug#begin('~/.vim/bundle')
+endif
+
 
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fbernier/nginx-vim-syntax'
