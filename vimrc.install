@@ -1,5 +1,9 @@
 set nocompatible hidden
 
-source $HOME/.vim/Plugfile.vim
+if has("win32")
+  source $HOME/vimfiles/Plugfile.vim
+else
+  source $HOME/.vim/Plugfile.vim
+endif
 
 " vim: ft=vim

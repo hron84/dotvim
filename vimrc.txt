@@ -5,23 +5,24 @@ let no_buffers_menu=1
 set mousemodel=popup
 set nocompatible
 
-syntax on
+set smartcase
+
+syntax off
 filetype off 
 
-source $HOME/.vim/Plugfile.vim
-
-filetype indent plugin on
-
-
-set smartcase
 if has("win32")
+    source $HOME/vimfiles/Plugfile.vim
     set directory=~/vimfiles/swap
     set backupdir=~/vimfiles/backup
     set fileencodings=utf-8,ucs-bom,cp852
 else
+    source $HOME/.vim/Plugfile.vim
     set directory=~/.vim/swap
     set backupdir=~/.vim/backup
 endif
+
+syntax on
+filetype indent plugin on
 
 set backup
 set modeline
@@ -56,7 +57,8 @@ au FileType php,c,c++,java set formatprg=~/.vim/bin/astyle-wrapper
 
 augroup Ruby
     au!
-    au FileType ruby set ts=2 sw=2 et si
+    au FileType ruby set ts=2 sw=2 et
+    au FileType yaml set ts=2 sw=2 et
     au FileType Gemfile set ts=2 sw=2 et
     au FileType eruby set ts=4 sw=4 et
     au FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -182,3 +184,5 @@ endif
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['sass', 'scss'] }
+
+let g:LustyJugglerSuppressRubyWarning = 1
