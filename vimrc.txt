@@ -62,6 +62,7 @@ augroup Ruby
     au FileType ruby,eruby set omnifunc=rubycomplete#Complete
     au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     au FileType ruby,eruby let g:rubycomplete_rails = 1
+    au FileType yaml set ts=2 sw=2 et
 
     au FileType cucumber setlocal makeprg=rake\ cucumber\ FEATURE=\"%:p\"
 
