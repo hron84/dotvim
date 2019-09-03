@@ -28,5 +28,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/twilight256.vim'
 Plug 'zainin/vim-mikrotik'
 Plug 'pearofducks/ansible-vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
