@@ -1,5 +1,7 @@
 set nocompatible hidden
 
+let g:LustyJugglerSuppressRubyWarning = 1
+
 if has("win32")
   source $HOME/vimfiles/Plugfile.vim
 else
