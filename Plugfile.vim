@@ -24,5 +24,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/twilight256.vim'
 " Plug '0rca/vim-mikrotik'
 Plug 'chase/vim-ansible-yaml'
+Plug 'crazy-canux/nagios.vim'
 
 call plug#end()
