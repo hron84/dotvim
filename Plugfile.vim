@@ -1,5 +1,10 @@
 
-call plug#begin('~/.vim/bundle')
+if has("win32")
+    call plug#begin('~/vimfiles/bundle')
+else
+    call plug#begin('~/.vim/bundle')
+endif
+
 
 Plug 'ekalinin/Dockerfile.vim'
 " Plug 'evanmiller/nginx-vim-syntax'
@@ -22,8 +27,9 @@ Plug 'tpope/vim-rails' " { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby' " { 'for': 'ruby' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/twilight256.vim'
-" Plug '0rca/vim-mikrotik'
-Plug 'chase/vim-ansible-yaml'
 Plug 'crazy-canux/nagios.vim'
+Plug 'zainin/vim-mikrotik'
+Plug 'pearofducks/ansible-vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()

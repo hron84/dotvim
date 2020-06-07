@@ -5,23 +5,24 @@ let no_buffers_menu=1
 set mousemodel=popup
 set nocompatible
 
-syntax on
+set smartcase
+
+syntax off
 filetype off 
 
-source $HOME/.vim/Plugfile.vim
-
-filetype indent plugin on
-
-
-set smartcase
 if has("win32")
+    source $HOME/vimfiles/Plugfile.vim
     set directory=~/vimfiles/swap
     set backupdir=~/vimfiles/backup
     set fileencodings=utf-8,ucs-bom,cp852
 else
+    source $HOME/.vim/Plugfile.vim
     set directory=~/.vim/swap
     set backupdir=~/.vim/backup
 endif
+
+syntax on
+filetype indent plugin on
 
 set backup
 set modeline
@@ -63,6 +64,7 @@ augroup Ruby
     au FileType ruby,eruby set omnifunc=rubycomplete#Complete
     au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     au FileType ruby,eruby let g:rubycomplete_rails = 1
+    au FileType yaml set ts=2 sw=2 et
 
     au FileType cucumber setlocal makeprg=rake\ cucumber\ FEATURE=\"%:p\"
 

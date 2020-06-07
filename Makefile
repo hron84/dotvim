@@ -11,6 +11,9 @@ submodules:
 	@echo " * Installing modules from Plugfile ... " && \
 	vim -u $(PWD)/vimrc.install +PlugInstall +qall
 
+update:
+	vim -u $(PWD)/vimrc.install +PlugUpdate +qall
+
 vimrc:
 	-rm -f ~/.vimrc
 	ln -s $(PWD)/vimrc.txt ~/.vimrc
