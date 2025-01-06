@@ -15,8 +15,6 @@ Plug 'hron84/vim-Guardfile'
 Plug 'hron84/vim-chef' " { 'for': 'ruby' }
 Plug 'hron84/vim-librarian'
 Plug 'kchmck/vim-coffee-script'
-Plug 'markcornick/vim-vagrant'
-Plug 'markcornick/vim-terraform'
 Plug 'othree/html5.vim' " { 'for': 'html' }
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'scrooloose/syntastic'
