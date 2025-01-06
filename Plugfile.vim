@@ -31,5 +31,11 @@ Plug 'crazy-canux/nagios.vim'
 Plug 'zainin/vim-mikrotik'
 Plug 'pearofducks/ansible-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-docker', {'do': 'yarn install --frozen-lockfile' }
+
+Plug 'itkq/fluentd-vim'
 
 call plug#end()
