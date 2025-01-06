@@ -12,7 +12,7 @@ submodules:
 	vim -u $(PWD)/vimrc.install +PlugInstall +qall
 
 update:
-	vim -u $(PWD)/vimrc.install +PlugUpdate +qall
+	vim -u $(PWD)/vimrc.install +PlugClean +PlugUpdate +qall
 
 vimrc:
 	-rm -f ~/.vimrc
