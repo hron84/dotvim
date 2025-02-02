@@ -2,10 +2,11 @@ set nocompatible hidden
 
 let g:LustyJugglerSuppressRubyWarning = 1
 
-if has("win32")
+if has("win32") || has("windows")
+  set runtimepath=~/vimfiles,/usr/share/vim/vimfiles,/usr/share/vim/vim91,/usr/share/vim/vimfiles/after,~/vimfiles/after
   source $HOME/vimfiles/Plugfile.vim
 else
   source $HOME/.vim/Plugfile.vim
 endif
 
-" vim: ft=vim
+" vim: ft=vim ts=2 sw=2 et
